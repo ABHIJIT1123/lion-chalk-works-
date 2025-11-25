@@ -1,0 +1,37 @@
+/* Print Stylesheet */
+@media print {
+    body {
+        background: white;
+        color: black;
+        font-size: 12pt;
+    }
+
+    .navbar,
+    .footer,
+    .btn,
+    .mobile-toggle {
+        display: none !important;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    .section {
+        padding: 0;
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+        color: black !important;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+}

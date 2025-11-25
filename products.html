@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog | Lion Chalk Works</title>
+    <meta name="description" content="Browse our complete catalog of educational and specialty chalk products.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦁</text></svg>">
+    <style>
+        /* CSS-Only Tabs System */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Default state (All) - Grid is always visible, we hide items */
+
+        .tab-labels {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .tab-label {
+            padding: 12px 24px;
+            border: 1px solid var(--color-gray-200);
+            cursor: pointer;
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .tab-label:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        input[name="tabs"] {
+            display: none;
+        }
+
+        /* Active Styling */
+        #tab-all:checked~.tab-labels label[for="tab-all"],
+        #tab-edu:checked~.tab-labels label[for="tab-edu"],
+        #tab-spec:checked~.tab-labels label[for="tab-spec"] {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        /* Filtering Logic */
+        #tab-edu:checked~.product-grid .type-spec {
+            display: none;
+        }
+
+        #tab-spec:checked~.product-grid .type-edu {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2l9 4.9V17L12 22l-9-4.9V7z" />
+                    </svg>
+                </div>
+                LION CHALK WORKS
+            </a>
+            <label for="mobile-menu-check" class="mobile-toggle">☰</label>
+            <input type="checkbox" id="mobile-menu-check">
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="products.html" class="nav-link active">Products</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Get
+                        Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="section section-dark"
+        style="padding: 100px 0; background: linear-gradient(rgba(26,26,26,0.9), rgba(26,26,26,0.8)), url('assets/hero/products-hero.jpg') center/cover no-repeat;">
+        <div class="container">
+            <div style="max-width: 800px;">
+                <h4 class="text-gold" style="text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">
+                    Product Catalog</h4>
+                <h1>Engineered Marking Solutions</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Radio Inputs -->
+            <input type="radio" id="tab-all" name="tabs" checked>
+            <input type="radio" id="tab-edu" name="tabs">
+            <input type="radio" id="tab-spec" name="tabs">
+
+            <!-- Filter Tabs -->
+            <div class="tab-labels">
+                <label for="tab-all" class="tab-label">All Products</label>
+                <label for="tab-edu" class="tab-label">Educational</label>
+                <label for="tab-spec" class="tab-label">Specialty</label>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-4 product-grid">
+                <!-- LCW-001 -->
+                <div class="card type-edu">
+                    <div class="card-image"><img src="assets/products/chalk-educational-white.jpg"
+                            alt="Premium White Dustless Chalk" loading="lazy"></div>
+                    <div class="card-content">
+                        <div class="card-sku">LCW-001</div>
+                        <h3 class="card-title">Premium White Dustless</h3>
+                        <p style="font-size: 0.9rem;">High-density, calcium carbonate formulation for zero-dust
+                            classrooms.</p>
+                        <div class="card-footer"><span class="text-gold" style="font-weight: 600;">Educational</span><a
+                                href="contact.html" class="text-tech">Inquire →</a></div>
+                    </div>
+                </div>
+                <!-- LCW-003 -->
+                <div class="card type-edu">
+                    <div class="card-image"><img src="assets/products/chalk-anti-dust.jpg"
+                            alt="Anti-Dust Educational Chalk" loading="lazy"></div>
+                    <div class="card-content">
+                        <div class="card-sku">LCW-003</div>
+                        <h3 class="card-title">Anti-Dust Educational</h3>
+                        <p style="font-size: 0.9rem;">Hypoallergenic formula designed for health-conscious institutions.
+                        </p>
+                        <div class="card-footer"><span class="text-gold" style="font-weight: 600;">Educational</span><a
+                                href="contact.html" class="text-tech">Inquire →</a></div>
+                    </div>
+                </div>
+                <!-- LCW-004 -->
+                <div class="card type-edu">
+                    <div class="card-image"><img src="assets/products/chalk-multicolor.jpg"
+                            alt="Multi-Color Presentation Chalk" loading="lazy"></div>
+                    <div class="card-content">
+                        <div class="card-sku">LCW-004</div>
+                        <h3 class="card-title">Multi-Color Presentation</h3>
+                        <p style="font-size: 0.9rem;">Vibrant pigments for high-contrast teaching and workshops.</p>
+                        <div class="card-footer"><span class="text-gold" style="font-weight: 600;">Educational</span><a
+                                href="contact.html" class="text-tech">Inquire →</a></div>
+                    </div>
+                </div>
+                <!-- LCW-007 -->
+                <div class="card type-spec">
+                    <div class="card-image"><img src="assets/products/chalk-customizable.jpg" alt="Customizable Chalk"
+                            loading="lazy"></div>
+                    <div class="card-content">
+                        <div class="card-sku">LCW-007</div>
+                        <h3 class="card-title">Customizable Chalk</h3>
+                        <p style="font-size: 0.9rem;">Tailored formulations for specific industrial or creative needs.
+                        </p>
+                        <div class="card-footer"><span class="text-gold" style="font-weight: 600;">Customizable</span><a
+                                href="contact.html" class="text-tech">Inquire →</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Standards -->
+    <section class="section" style="background-color: var(--color-gray-100);">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center;">
+                <div>
+                    <h2 style="margin-bottom: 24px;">Technical Standards</h2>
+                    <p>Our products are tested rigorously to ensure they meet the demands of
+                        professional environments.
+                    </p>
+                    <div
+                        style="background: white; padding: 24px; border: 1px solid var(--color-gray-200); font-family: var(--font-tech); font-size: 0.9rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                            <span>Density</span><span>2.4 g/cm³</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                            <span>Breaking Strength</span><span>> 4.5 kgf</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                            <span>Dust Content</span><span>
+                                < 0.5%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Toxicity</span><span>None
+                                (ASTM D-4236)</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 32px; background: var(--color-primary); color: white; text-align: center;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 16px;">Bulk Orders</h3>
+                    <p style="margin-bottom: 24px;">Need large quantities? We offer volume pricing
+                        for schools and
+                        industrial partners.</p>
+                    <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 16px;">
+                        <div class="logo-icon" style="background: white; color: var(--color-primary);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l9 4.9V17L12 22l-9-4.9V7z" />
+                            </svg>
+                        </div>
+                        LION CHALK WORKS
+                    </a>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Precision-crafted
+                        chalk for
+                        professionals. Proudly manufactured in India, serving global standards of
+                        excellence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Educational Chalk</a></li>
+                        <li><a href="products.html">Specialty Grade</a></li>
+                        <li><a href="products.html">Bulk Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html">Manufacturing</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html">Distribution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li style="color: rgba(255,255,255,0.6);">Eknath Nagar,
+                            Kedgaon,<br>Ahilyanagar 414005</li>
+                        <li><a href="tel:+919046462727">+91 9046462727</a></li>
+                        <li><a href="tel:+918149999171">+91 8149999171</a></li>
+                        <li><a href="mailto:lionchalkwork@gmail.com">lionchalkwork@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lion Chalk Works. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
