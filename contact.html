@@ -130,18 +130,21 @@
                     <p>Tell us about your requirements — whether it's bulk orders, custom formulations, or distribution
                         partnerships.</p>
 
-                    <form style="margin-top: var(--space-xl);" id="contact-form">
+                    <form style="margin-top: var(--space-xl);" id="contact-form" name="inquiry" method="POST" data-netlify="true" action="success.html">
+                        <!-- Hidden input required for Netlify Forms -->
+                        <input type="hidden" name="form-name" value="inquiry">
+
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Email Address" required>
+                            <input type="email" name="email" class="form-input" placeholder="Email Address" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-input" placeholder="Phone Number">
+                            <input type="tel" name="phone" class="form-input" placeholder="Phone Number">
                         </div>
                         <div class="form-group">
-                            <select class="form-input" required>
+                            <select name="type" class="form-input" required>
                                 <option value="" disabled selected>Inquiry Type</option>
                                 <option value="bulk">Bulk Order</option>
                                 <option value="custom">Custom Formulation</option>
@@ -151,7 +154,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-input" placeholder="Your Message" rows="4" required></textarea>
+                            <textarea name="message" class="form-input" placeholder="Your Message" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary"><span>Send Message</span></button>
                     </form>
